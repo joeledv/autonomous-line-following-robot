@@ -1,0 +1,60 @@
+/camera_node:
+  ros__parameters:
+    camera_device: 0
+    video_codec: 'MJPG'
+    frame_width: 640
+    frame_height: 480
+    frame_id: 'camera_link'
+
+/line_detection_node:
+  ros__parameters:
+    roi_start: 0.50
+    width: 320
+    kernel_size: 7
+    frac_min: 0.01
+    frac_max: 0.45
+    width_max: 0.50
+    error_smoothing_alpha: 0.6
+    ema_reset_after: 0.1
+    video_debug: true
+    side_timeout: 3.0
+    recovery_time: 0.2
+    end_after_stop: 3.0
+
+/detection_node:
+  ros__parameters:
+    confidence_threshold: 0.5
+    nms_threshold: 0.5
+    class_agnostic: false
+    video_debug: true
+    detection_period: 0.25
+    min_area: 5000
+
+/pid_node:
+  ros__parameters:
+    kp: 6.0
+    ki: 1.0
+    kd: 1.5
+    max_angular: 5.0
+    linear_speed: 0.2
+    max_integral: 0.5
+    integral_zone: 0.30
+    tolerance: 0.02
+    restart_gap: 0.1
+    min_dt: 0.016666666666666666   # 1/60 s; YAML can't evaluate "1.0 / 60.0"
+
+/serial_node:
+  ros__parameters:
+    serial_port: '/dev/ttyUSB0'
+    baud_rate: 9600
+    drive_min: -60
+    max_speed: 255
+    base_speed: 85
+    pwm_per_rad: 31.0
+    cmd_timeout: 0.1
+    start_speed: 104
+    start_duration: 0.1
+
+/state_machine_node:
+  ros__parameters:
+    stop_time: 3.0

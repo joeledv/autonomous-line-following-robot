@@ -1,0 +1,23 @@
+description: Ultralytics YOLO11n model trained on /content/My-First-Project-2/data.yaml
+author: Ultralytics
+date: '2026-10-18T18:28:03.554771+00:00'
+version: 8.4.182
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+head: Detect
+batch: 1
+imgsz:
+- 320
+- 320
+names:
+  0: alert
+  1: left
+  2: right
+  3: stop
+args:
+  batch: 1
+  quantize: 16
+channels: 3
+end2end: false
